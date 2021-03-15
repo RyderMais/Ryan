@@ -1,7 +1,6 @@
 ###### ⚠ This project use "Brazilian Portuguese" as our native language. You can always help adding a pull request in **Dev** branch.<br><br>
-# Mizuki Bot
 
-### **Ryan Bot**<br>
+# **Ryan Bot**
 Robô (inicialmente pensando) para o Discord, com funções de automação, moderação, diversão e utilitários.
 
 ## Dependências
