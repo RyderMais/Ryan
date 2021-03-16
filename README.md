@@ -1,7 +1,7 @@
-###### ⚠ This project use "Brazilian Portuguese" as our native language. You can always help adding a pull request in **Dev** branch.<br><br>
-
 # **Ryan Bot**
 Robô (inicialmente pensando) para o Discord, com funções de automação, moderação, diversão e utilitários.
+
+###### ⚠ This project use "Brazilian Portuguese" as our native language. You can always help adding a pull request in **Dev** branch.<br><br>
 
 ## Dependências
 **Essencial:**
@@ -14,7 +14,7 @@ Robô (inicialmente pensando) para o Discord, com funções de automação, mode
 
 **Opcional:**
 - FFMPEG Library (para Auto DJ e manipulação de imagens)
-- MySQL (Armazenar os dados externamente)
+- MySQL (armazenar os dados externamente)
 
 ## Idiomas Suportados
 - **Português Brasileiro [*pt-BR*]**: **100%**
@@ -31,11 +31,14 @@ O prefixo dos comandos *inicialmente* será `+`, só podendo ser trocado atravé
 `+clean [valor: 2-255] (offset: 0-255)` = Exclui a quantidade mensagens recentes informada. O *offset* ignora a quantidade nas últimas mensagens recebidas no chat **antes** de iniciar a limpeza.<br>
 
 ## Metas (To-DO) `WIP`
-* Vamos deixar a meta aberta
+* Vamos deixar a meta aberta<br>
 **Em seguida:**<br>
 * Dobraremos a meta
 
 ## Alterações Recentes `WIP`
+**\[2020/03/15\]**
+\+ Criação do repositório, README e GitHub Pages.
+\+ Primeiro commit, variáveis estáticas em processo de adaptação. 
 
 ## Créditos
 Desenvolvido por [**Wellington N.**](https://github.com/Bryceed), rotulado como programador da RyderMais.

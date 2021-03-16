@@ -1,0 +1,39 @@
+{
+  "name": "ryan",
+  "version": "2021.315.0",
+  "description": "A Discord Bot (initially) to serve multipurposal commands in guilds.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "ryan",
+    "rydermais",
+    "brazil",
+    "brasil",
+    "br"
+  ],
+  "author": "Wellington N. (@Bryceed#8168)",
+  "license": "GNU AGLPv3",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*",
+      "docs/*"
+    ],
+    "delay": "5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryceed/ryan.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bryceed/ryan/issues"
+  },
+  "homepage": "https://github.com/bryceed/ryan#readme"
+}
