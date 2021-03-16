@@ -19,7 +19,7 @@
   "author": "Wellington N. (@Bryceed#8168)",
   "license": "GNU AGLPv3",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2"
+    "@discordjs/opus": "^0.4.0"
   },
   "nodemonConfig": {
     "ignore": [
