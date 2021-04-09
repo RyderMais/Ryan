@@ -1,40 +1,62 @@
 ﻿/*------------------------------+
 |  0.    Global Declarations    |
 +------------------------------*/
-const Discord = require("discord.js");
+const Discord = require("discord.js")
 const Moment = require("moment")
-const package = require("./package.json");
-const fs = require("fs");
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-const Enmap = require("enmap");
-const config = require("./config.json");
-var presets = require("./presets.json");
+const Enmap = require("enmap")
+const Josh = require("@joshdb/core")
+const provider = require('@joshdb/sqlite')
+const Fs = require("fs")
+require('dotenv').config()
 
-client.config = config;
-client.config.presets = presets;
-client.globalPresets = globalPresets;
+const package = require("./package.json")
+var presets = require("./presets.json")
+const client = new Discord.Client(
+  { partials: ['MESSAGE', 'CHANNEL', 'REACTION'] }
+)
 
-const modules = presets.modules;
+client.config = new Josh({
+  name: "settings",
+  fetchAll: false,
+  autoFetch: true,
+  cloneLevel: 'deep',
+  autoEnsure: {
+    prefix: "+",
+    modLogChannel: 0,
+    modRole: 0,
+    adminRole: 0,
+    lang: "pt-BR",
+    welcomeChannel: 0,
+    welcomeMessage: 0
+  }
+});
+client.presets = presets
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+const modules = client.presets.modules
 
-fs.readdir("./handler/events/", (err, files) => {
+process.on('unhandledRejection', error => {
+  console.error('Erro inesperado:', error);
+});
+
+Fs.readdir(__dirname+`/handler/events/`, (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    const event = require(`./handler/events/${file}`);
+    const event = require(__dirname+`/handler/events/${file}`);
     let eventName = file.split(".")[0];
     client.on(eventName, event.bind(null, client));
   });
 });
 
-client.commands = new Enmap();
 modules.forEach(c => {
-  fs.readdir(`./handler/commands/${c}/`, (err, files) => {
+  Fs.readdir(__dirname+`/handler/commands/${c}/`, (err, files) => {
   if (err) return console.error(err);
   console.log(`[Modules Handler]: ${files.length} "${c}" `);
-    files.forEach(f => {
-      const props = require(`./handler/commands/${c}/${f}`);
-      client.commands.set(props.help.usage, props);
+    files.forEach(async f => {
+      const props = require(__dirname+`/handler/commands/${c}/${f}`);
+      client.commands.set(props.help.usage, props)
       props.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, props.help.usage);
+        client.aliases.set(alias, props.help.usage)
       });
     });
   });
@@ -61,45 +83,46 @@ client.on('raw', packet => {
 });
 
 client.on("ready", async () => {
+  console.log(client.commands);
   Moment.locale('pt-br');
-  console.log(`\n[` + Moment().format('YYYYMMDD HHmmss') + `]: [+] BOT STARTED AS "${client.user.username}"`);
-  console.log(`[` + Moment().format('YYYYMMDD HHmmss') + `]: [+] USERS: ${client.users.size} | CHANNELS: ${client.channels.size} | GUILDS: ${client.guilds.size}`);
+  console.log(`\n[` + Moment().format('YYYYMMDD HHmmss') + `]: [+] BOT STARTED AS "${client.user.username}" (${client.user.id})`);
+  console.log(`[` + Moment().format('YYYYMMDD HHmmss') + `]: [+] USERS: ${client.users.cache.size} | CHANNELS: ${client.channels.cache.size} | GUILDS: ${client.guilds.cache.size}`);
 
-  client.globalPresets.statusTimeout = 2;
+  client.presets.statusTimeout = 2;
     const phases = [
     'bryceed.github.io/ryan',
     'ryan.RyderMais.com',
-    ''+client.users.size+' users',
-    ''+client.channels.size+' channels',
-    ''+client.guilds.size+' servers (●\'◡\'●)'
+    ''+client.users.cache.size+' users',
+    ''+client.channels.cache.size+' channels',
+    ''+client.guilds.cache.size+' servers (●\'◡\'●)'
   ];
   // online, busy, idle, invisible
-  globalPresets.statusTimeout = 2;
-  globalPresets.statusLast = "offline";
-  globalPresets.firstExec = 1;
+  client.presets.statusTimeout = 2;
+  client.presets.statusLast = "offline";
+  client.presets.firstExec = 1;
   setInterval(function() {
-    if(globalPresets.statusTimeout >= 2) {
-      if(globalPresets.firstExec == 1 || globalPresets.statusTimeout == 3) {
+    if(client.presets.statusTimeout >= 2) {
+      if(client.presets.firstExec == 1 || client.presets.statusTimeout == 3) {
         client.user.setStatus('bnb');
-        globalPresets.statusLast = "bnb";
+        client.presets.statusLast = "bnb";
       }
-      else if(globalPresets.statusLast != "online" || globalPresets.firstExec != 1) {
+      else if(client.presets.statusLast != "online" || client.presets.firstExec != 1) {
         client.user.setStatus('online').then().catch();
-        globalPresets.statusLast = "online";
+        client.presets.statusLast = "online";
         console.log(`[` + Moment().format('YYYYMMDD HHmmss') + `]: --status:online`);
       }
-      globalPresets.statusTimeout--;
-    }else if(globalPresets.statusTimeout >= 1) {
+      client.presets.statusTimeout--;
+    }else if(client.presets.statusTimeout >= 1) {
       client.user.setStatus('idle');
-      if( globalPresets.firstExec == 1) {client.user.setStatus('idle');}
-      globalPresets.statusLast = "idle";
-      globalPresets.firstExec = 0;
+      if( client.presets.firstExec == 1) {client.user.setStatus('idle');}
+      client.presets.statusLast = "idle";
+      client.presets.firstExec = 0;
       console.log(`[` + Moment().format('YYYYMMDD HHmmss') + `]: --status:idle`);
-      globalPresets.statusTimeout--;
+      client.presets.statusTimeout--;
     }
   }, 15000);
 
-  if(client.globalPresets.local != 1 || client.globalPresets.local != undefined){ 
+  if(client.presets.local != 1 || client.presets.local != undefined){ 
     client.user.setPresence({
       game: {
         name: 'Carregando...',
@@ -123,12 +146,12 @@ client.on("ready", async () => {
 |  3.         Actions           |
 +------------------------------*/
 client.on('messageReactionAdd', (reaction, user) => {
-  client.globalPresets.statusTimeout = 3;
+  client.presets.statusTimeout = 3;
   console.log('a reaction has been added');
 });
 
 client.on('messageReactionRemove', (reaction, user) => {
-  client.globalPresets.statusTimeout = 3;
+  client.presets.statusTimeout = 3;
   console.log('a reaction has been removed');
 });
 
@@ -137,6 +160,13 @@ client.on('messageReactionRemove', (reaction, user) => {
 /*------------------------------+
 |  4.    Back-end Functions     |
 +------------------------------*/
+if (client.presets.consoleLogChannel != "disabled"){
+  let clog = process.openStdin();
+  clog.addListener("data", res => {
+    let clog = res.toString().trim().split(/ +/g)
+    client.channels.cache.get(client.presets.consoleLogChannel).send(clog.join(" "));
+  })
+}
 
 if(typeof process.env.API_DISCORD_STABLE !== typeof undefined){
   try{
@@ -144,21 +174,21 @@ if(typeof process.env.API_DISCORD_STABLE !== typeof undefined){
   }catch(err){
     console.log(`An error was ocurred while I tried to login: ${err}`);
   }
-  client.globalPresets.local = 0;
+  client.presets.local = 0;
 }else if(typeof process.env.API_DISCORD_BETA !== typeof undefined){
   try{
     client.login(process.env.API_DISCORD_BETA);
   }catch(err){
     console.log(`An error was ocurred while I tried to login: ${err}`);
   }
-  client.globalPresets.local = 0;
+  client.presets.local = 0;
 }else if(typeof process.env.API_DISCORD_DEV !== typeof undefined){
   try{
     client.login(process.env.API_DISCORD_DEV);
   }catch(err){
     console.log(`An error was ocurred while I tried to login: ${err}`);
   }
-  client.globalPresets.local = 1;
+  client.presets.local = 1;
 }else{
   console.log("[!] You need to set the OAuth Key of your Discord Bot. Vars accepted, ordered by priority: process.env.DISCORDAUTH / vars.auth_discord / vars.auth_test");
   console.log("[LOGIN] None of these login methods worked (yet).");
