@@ -43,7 +43,7 @@ exports.run = async (client, message) =>  {
       }
 
     function send(msg, ram, cpu, uptime) {
-        m.edit(`**Estatísticas:**\r> :frog: **RAM:** \`${ram}\`MB (\`${Math.round((ram * 100)/ 512)}\`%)\r>>> :oil: **CPU:** \`${(cpu*100).toFixed(1)}\`%\r\r:clock11: **UPTIME**: Há ${uptime}`)
+        m.edit(`**Estatísticas:**\r> :frog: **RAM:** \`${ram}\`MB/**${client.presets.ramGB}GB** (\`${Math.round((ram * 100)/ 1024)}\`%)\r>>> :oil: **CPU:** \`${(cpu*100).toFixed(1)}\`%\r\r:clock11: **UPTIME**: Há ${uptime}`)
     }
     time = Moment.duration(process.uptime() * 1000).humanize();
 

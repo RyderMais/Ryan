@@ -17,6 +17,7 @@ const client = new Discord.Client(
 
 client.config = new Josh({
   name: "settings",
+  provider: provider,
   fetchAll: false,
   autoFetch: true,
   cloneLevel: 'deep',

@@ -1,19 +1,13 @@
 const Discord = require("discord.js");
-const ytdl = require("ytdl-core-discord");
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('data/musicQueue.json')
-const db = low(adapter)
-db.defaults({}).write()
+const { OpusEncoder } = require('@discordjs/opus');
 
 exports.conf = {
     aliases: ['play', 'tocar', 'reproduce', 'reproduzir', 'toque']
 };
 exports.help = {
-    name: "[PREMIUM] Pause Music", description: "Pause a current music", usage: "pause"
+    name: "[PREMIUM] Pause Music", description: "Pause a current music", usage: "play"
 };
 exports.run = async (client, message, args) =>  {
-
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel)
       return message.reply(

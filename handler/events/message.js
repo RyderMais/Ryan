@@ -1,21 +1,31 @@
 const Discord = require("discord.js");
-const LowDB = require("lowdb");
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('data/db.json');
-const db = LowDB(adapter);
+const Josh = require("@joshdb/core");
+const provider = require('@joshdb/sqlite');
+const Enmap =  require('enmap');
+
+const db = new Josh({
+  name: 'testing',
+  provider,
+});
 
 module.exports = (client, message) => {
-
+  console.log(message.content)
   if (message.author.bot) return;
-  if (message.content.indexOf(client.config.presets.prefix) !== 0) return;
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`)
+  if(message.content.match(prefixMention) != null) {
+    console.log("Single mention")
+    return message.reply(`my :speech_balloon: **Chat Prefix** here is: \`!\`\n\n> Você pode digitar \`!help\`, \`!ajuda\` para ver uma lista\n> *...or visit: https://ryan.rydermais.com/ for more info*`);
+  }
+  if (message.content.indexOf(client.presets.prefix) !== 0) return;
 
   const args = message.content.slice(1).trim().split(/ +/g);
-  console.log(args+`: ${message.channel.guild.id}`);
   let command = args.shift(1).toLowerCase();
-  let cmd = client.commands.get(command);
-  if (client.aliases.has(command)) {
-    cmd = client.commands.get(client.aliases.get(command));
-  }else{
+
+  console.log(args+`: ${message.channel.guild.id}`);
+  cmd = client.commands.has(command) || client.aliases.has(command)
+  let debugMode=0
+  if (args.includes("--debug")) {debugMode=1}
+  if (cmd != true) {
     let embed = {
       "title": "Error Code: CMD_NOT_FOUND",
       "description": "Geralmente isso acontece quando o usuário tenta usar um comando que não existe, ou se houver algo de errado em meu código, que me impeça de ver/ler o código. \r\r**Possíveis Soluções**\r> - Verifique se escreveu corretamente;\r> - Checar se o comando existe;\r> - Comunique possível erro a `Bryceed#8168`",
@@ -23,21 +33,23 @@ module.exports = (client, message) => {
       "color": 11338242,
       "footer": {
         "icon_url": "",
-        "text": "Mizuki Bot (v"+`${client.globalPresets.version}`+") by RyderMais | http://mizuki.rydermais.com/"
+        "text": "Mizuki Bot (v"+`${client.presets.version}`+") by RyderMais | http://mizuki.rydermais.com/"
       },
       "author": {
         "name": "Falha de execução",
         "url": "",
         "icon_url": "https://cdn.discordapp.com/emojis/640286785896710144.png?v=1"
       }
-    };
-    return message.reply("err... tem certeza?", { embed });
+    }
+    return message.reply('', { embed });
+  }else{
+    cmd = client.commands.get(command) || client.aliases.get(command)
   }
-
-  if (!cmd) return;
-
   console.log("OK");
-  client.globalPresets.statusTimeout = 4;
-  cmd.run(client, message, args);
-  
+  client.presets.statusTimeout = 4;
+  try{
+    cmd.run(client, message, args, debugMode)
+  }catch(e) {
+    console.log(e);
+  }
 };
