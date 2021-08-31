@@ -28,7 +28,7 @@
     "dotenv": "^8.2.0",
     "enmap": "^5.8.0",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^4.3.0",
+    "ffmpeg-static": "^4.4.0",
     "git": "^0.1.5",
     "lowdb": "^1.0.0",
     "moment": "^2.29.1",
