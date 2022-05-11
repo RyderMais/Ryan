@@ -1,7 +1,7 @@
 {
     "consoleLogChannel": "723794092563103785",
     "botOwner": "269803975090372608",
-    "lang": "Pt-BR",
+    "lang": "pt-BR",
     "prefix": "+",
     "ramGB": "1",
     "modules": ["administration", "aliases", "botowner", "conversation", "economy", "fun", "games", "getinfo", "help", "imagedit", "licensing", "moderation", "music", "personalchannels", "serverowner", "services", "scheduler", "tickets"]
