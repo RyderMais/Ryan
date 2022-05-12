@@ -3,10 +3,10 @@ const fs = require('fs');
 const Moment = require('moment');
 
 exports.conf = {
-    aliases: ['memory', 'ram', 'memoria']
+    aliases: ['cpu', 'cpu-usage']
 };
 exports.help = {
-    name: "[BOT OWNER] Memory RAM Checker", description: "-", usage: "ram"
+    name: "[BOT OWNER] Memory RAM Checker", description: "-", usage: "cpu"
 };
 exports.run = async (client, message) =>  {
 
@@ -24,22 +24,28 @@ exports.run = async (client, message) =>  {
             irq: acc.irq + cur.irq
         };
     });
-
     const cpuPercent = (cpuTotalTime.user + cpuTotalTime.nice + cpuTotalTime.sys) / (cpuTotalTime.idle + cpuTotalTime.irq) * 100;
-    const ramPercent = (os.freemem() / os.totalmem()) * 100;
-    const ramTotal = (os.totalmem() / 1024 / 1024 / 1024).toFixed(1);
-    const ramFree = (os.freemem() / 1024 / 1024 / 1024).toFixed(2);
 
-    const cpuUpTime = Moment.duration(os.uptime() * 1000).humanize();
+    const cpuStats = {
+        model: cpu[0].model,
+        speed: (cpu[0].speed / 1024).toFixed(2),
+        cores: cpu.length,
+        arch: os.arch(),
+        so: os.platform(),
+    }   
+    const cpuUptime = Moment.duration(os.uptime() * 1000).humanize();
 
     let embed = new Discord.MessageEmbed()
-        // color green if ram is below 60%, yellow if between 60% and 85%, red if above 85%
-        .setColor(ramPercent < 60 ? '#00ff00' : ramPercent < 85 ? '#ffff00' : '#ff0000')
-        .setTitle('Uso de Memória RAM')
+        // color green if cpu or ram is below 60%, yellow if between 60% and 85%, red if above 85%
+        .setColor(cpuPercent < 60 ? '#00ff00' : cpuPercent < 85 ? '#ffff00' : '#ff0000')
+        .setTitle(`Uso de CPU (${Math.round(cpuPercent)}%)`)
         .setDescription(
-            `**RAM USAGE:** ${Math.round(ramPercent)}%\r` +
-            `**TOTAL:** \`${ramFree}\`/${ramTotal} GB\r\r`+
-            `>>> **UPTIME**: Há ${cpuUpTime}`
+            `:floppy_disk: **${cpuStats.so} (${cpuStats.arch})**\r` +
+            `*${cpuStats.model}*\r\r`+
+            `> **Utilização:** ${Math.round(cpuPercent)}%\r` +
+            `> **Velocidade:** ${cpuStats.speed} GHz\r`+
+            `> **Núcleos:** ${cpuStats.cores}\r\r`+
+            `**SYSTEM UPTIME**: ${cpuUptime}`
         )
         // add the bot image in footer
         .setFooter(`${client.user.username} ©️ ${new Date().getFullYear()}`, client.user.avatarURL())
@@ -49,5 +55,4 @@ exports.run = async (client, message) =>  {
         m.delete({ timeout: 15000 });
         message.delete({ timeout: 15000 });
     });
-      
 }

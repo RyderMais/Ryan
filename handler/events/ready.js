@@ -24,7 +24,7 @@ module.exports = async (client) => {
   client.presets.statusTimeout = 2;
     const phases = [
     'bryceed.github.io/ryan',
-    'ryan.RyderMais.com',
+    'ryan.rydermais.com',
     ''+client.users.cache.size+' users',
     ''+client.channels.cache.size+' channels',
     ''+client.guilds.cache.size+' servers (●\'◡\'●)'

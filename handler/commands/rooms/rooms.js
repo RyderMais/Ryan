@@ -1,15 +1,20 @@
 const Discord = require("discord.js");
-const LowDB = require("lowdb");
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('data/privaterooms.json');
-const db = LowDB(adapter);
-
+const Josh = require("@joshdb/core");
+const provider = require('@joshdb/sqlite');
+const Moment = require("moment");
+let db = new Josh({
+    name: "discord-bot",
+    provider: provider,
+    fetchAll: false,
+    autoFetch: true,
+    cloneLevel: 'deep'
+});
 
 exports.conf = {
-    aliases: ['room', 'sala', 'salas', 'privado', 'privada']
+    aliases: ['rooms', 'room', 'salas', 'sala']
 };
 exports.help = {
-    name: "Private Rooms", description: "...", usage: "rooms"
+    name: "[BOT OWNER] Memory RAM Checker", description: "-", usage: "rooms"
 };
 exports.run = async (client, message, args, db) =>  {
     console.log(args[1]);

@@ -42,7 +42,14 @@ module.exports = async (client, message) => {
                     if (command) {
                         command.run(client, message, args)
                     } else {
-                        message.channel.send("Comando não encontrado.");
+                        let embed = new Discord.MessageEmbed()
+                            .setColor("#ff0000")
+                            .setTitle("Comando não encontrado")
+                            .setFooter("https://bryceed.github.io/ryan");
+                            message.channel.send(embed).then(msg => {
+                                msg.delete({ timeout: 5000 })
+                            });
+                            message.delete({ timeout: 5500 });
                     }
                 }
             }
