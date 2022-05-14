@@ -1,0 +1,20 @@
+{
+    "version": 1,
+
+    "console": {
+        "log": {
+            "BOT_STARTED_AS": "O robô iniciou como %1 (ID: %2)"
+        }
+    },
+    "messages": {
+        "info": {
+            
+        },
+        "error": {
+            "INVALID_COMMAND": {
+                "title": "Comando inválido",
+                "description": "O comando '{[command]}' não é válido. Por favor, tente novamente."
+            }
+        }
+    }
+}
