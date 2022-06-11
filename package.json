@@ -26,7 +26,7 @@
     "@joshdb/core": "^1.2.7",
     "@joshdb/sqlite": "^1.1.9",
     "@mapbox/node-pre-gyp": "^1.0.9",
-    "better-sqlite3": "^7.1.0",
+    "better-sqlite3": "^7.5.3",
     "discord-api-types": "^0.33.5",
     "discord-ytdl-core": "^5.0.4",
     "discord.js": "^13.8.0",
