@@ -3,6 +3,6 @@
     "botOwner": "269803975090372608",
     "lang": "pt-BR",
     "prefix": "+",
-    "ramGB": "1",
+    "ramGB": 1,
     "modules": ["administration", "botowner", "debug", "economy", "getinfo", "help", "moderation", "music", "rooms", "serverowner", "services", "scheduler", "tickets"]
 }
