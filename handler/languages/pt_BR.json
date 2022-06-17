@@ -1,0 +1,109 @@
+{
+    "version": "1.0",
+    "language": "Português",
+    "languageFallback": "Portuguese",
+    "country": "Brasil",
+    "countryFallback": "Brazil",
+    "direction": "ltr",
+    "display": "full",
+    "format": {
+        "date": {
+            "short": "d/m/Y",
+            "medium": "d/m/Y",
+            "long": "d/m/Y",
+            "full": "d/m/Y"
+        },
+        "time": {
+            "short": "H:i",
+            "medium": "H:i",
+            "long": "H:i",
+            "full": "H:i"
+        },
+        "datetime": {
+            "short": "d/m/Y H:i",
+            "medium": "d/m/Y H:i",
+            "long": "d/m/Y H:i",
+            "full": "d/m/Y H:i"
+        }
+    },
+    "messages": {
+        "buttons": {
+            "yes": "sim",
+            "no": "não",
+            "allow": "permitir",
+            "deny": "negar",
+            "read": "ler",
+            "write": "escrever",
+            "delete": "excluir",
+            "add": "adicionar",
+            "remove": "remover",
+            "ok": "ok",
+            "cancel": "cancelar",
+            "close": "fechar",
+            "apply": "aplicar",
+            "reset": "reiniciar",
+            "back": "voltar",
+            "next": "próximo",
+            "previous": "anterior",
+            "finish": "finalizar",
+            "start": "iniciar",
+            "stop": "parar",
+            "hide": "ocultar",
+            "show": "mostrar",
+            "search": "pesquisar",
+            "filter": "filtrar",
+            "clear": "limpar",
+            "change": "alterar"
+        },
+        "phrases": {
+            "common": {
+                "IS_LOADING": "Carregando...",
+                "IS_LOADING_FULL": "Carregando, por favor aguarde...",
+                "NOT_FOUND": "Não encontrado",
+                "NOT_FOUND_FULL": "Não encontrado. Por favor, verifique se a digitação está correta, e as funções disponíveis para uso.",
+                "NOT_ALLOWED": "Não permitido",
+                "NOT_ALLOWED_FULL": "Não permitido. Por favor, verifique se você possui permissão suficiente para executar essa ação."
+            },
+            "modules": {
+                "getinfo": {
+                    "title": "Informações do bot",
+                    "description": "Informações do bot",
+                    "module": {
+                        "about": {
+                            "title": "Sobre",
+                            "description": "Informações sobre o bot",
+                            "version": "Versão",
+                            "author": "Autor",
+                            "website": "Website",
+                            "repository": "Repositório",
+                            "issues": "Problemas",
+                            "donate": "Doar",
+                            "donate_description": "Se você gostou do bot, por favor, faça uma doação para o autor.",
+                            "donate_link": "https://www.paypal.me/",
+                            "embed": {
+                                "name": "Nome",
+                                "id": "ID",
+                                "description": "Descrição",
+                                "prefix": "Prefixo",
+                                "owner": "Dono",
+                                "owner_id": "ID do dono",
+                                "created_at": "Criado em",
+                                "updated_at": "Atualizado em",
+                                "deleted_at": "Excluído em",
+                                "invite_code": "Código de convite",
+                                "invite_url": "URL de convite",
+                                "icon": "Ícone",
+                                "server_count": "Número de servidores",
+                                "channel_count": "Número de canais",
+                                "user_count": "Número de usuários",
+                                "status": ["Status", "Online", "Ausente", "Ocupado", "Offline"],
+                                "region": ["Região", "Brasil", "Esterópia", "América do Norte", "América do Sul", "África", "Ásia", "Europa", "Oceania"],
+                                "language": ["Linguagem", "Português", "Inglês", "Espanhol", "Alemão", "Russo", "Japonês", "Chinês", "Coreano", "Indiano", "Filipino", "Russo", "Turco", "Polonês", "Arabe", "Búlgaro", "Catarês", "Croata", "Dinamarquês", "Eslovaco", "Eslovênio", "Francês", "Grego", "Húngaro", "Italiano", "Japonês", "Latim", "Norueguês", "Português", "Russo", "Sueco", "Turco", "Ucraniano"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
