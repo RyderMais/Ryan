@@ -1,67 +1,27 @@
 {
   "name": "ryan",
-  "version": "2021.315.0",
-  "description": "A Discord Bot (initially) to serve multipurposal commands in guilds.",
-  "main": "main.js",
+  "version": "2.0.0",
+  "description": "Rework for Discord v13 API",
+  "main": "starter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main.js"
-  },
-  "keywords": [
-    "discord",
-    "bot",
-    "ryan",
-    "rydermais",
-    "brazil",
-    "brasil",
-    "br"
-  ],
-  "author": "Wellington N. (@Bryceed#8168)",
-  "license": "AGPL-3.0",
-  "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/opus": "github:discordjs/opus",
-    "@discordjs/rest": "^0.5.0",
-    "@discordjs/voice": "^0.10.0",
-    "@joshdb/core": "^1.2.7",
-    "@joshdb/sqlite": "^1.1.9",
-    "@mapbox/node-pre-gyp": "^1.0.9",
-    "better-sqlite3": "^7.5.3",
-    "discord-api-types": "^0.33.5",
-    "discord-ytdl-core": "^5.0.4",
-    "discord.js": "^13.8.0",
-    "dotenv": "^16.0.1",
-    "enmap": "^5.9.0",
-    "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^5.0.0",
-    "git": "^0.1.5",
-    "lowdb": "^3.0.0",
-    "moment": "^2.29.1",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.16",
-    "opusscript": "^0.0.8",
-    "simple-youtube-api": "^5.2.1",
-    "superagent": "^7.1.6",
-    "uuid": "^8.3.2",
-    "websocket": "^1.0.34",
-    "ws": "^8.2.1",
-    "ytdl": "^1.4.1",
-    "ytdl-core": "^4.11.0",
-    "ytdl-core-discord": "^1.3.1"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "node_modules/*",
-      "docs/*"
-    ],
-    "delay": "5000"
+    "start": "node starter.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bryceed/ryan.git"
+    "url": "git+https://github.com/Bryceed/Ryan.git"
   },
+  "author": "Bryceed (Wellington N.)",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bryceed/ryan/issues"
+    "url": "https://github.com/Bryceed/Ryan/issues"
   },
-  "homepage": "https://github.com/bryceed/ryan#readme"
+  "homepage": "https://github.com/Bryceed/Ryan#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.10.0",
+    "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1",
+    "errorhandler": "^1.5.1",
+    "express": "^4.18.1"
+  }
 }

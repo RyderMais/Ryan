@@ -1,0 +1,6 @@
+{
+    "port": "80",
+    "protocol": "http",
+    "path": "/",
+    "lang": "en"
+}

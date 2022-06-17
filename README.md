@@ -1,7 +1,9 @@
+> ⚠ This project use "Portuguese (Brazil)" as our native language. You can  help with translations in **languages** folder.
+
+<br><br><br>
 <p align=center><img src="https://user-images.githubusercontent.com/42657376/148737048-abcd0787-5989-4c54-b562-93d70e7365ea.png" style="border-radius:50%"/></p>
 <h1 align=center><b>RYΛN</b> <code>Bot</code></h1>
 <p align=center>Robô (inicialmente pensando) para o Discord, com funções de automação, moderação, diversão e utilitários.</p><br><br>
-<h5 align=center>⚠ This project use "Brazilian Portuguese" as our native language. You can always help adding a pull request in **Dev** branch.</p><br><br>
 
 ## Dependências
 **Essencial:**
@@ -10,8 +12,7 @@
 - Enmap
 - Fs
 - LowDB
-- Moment!
-
+- Moment
 
 **Opcional:**
 - FFMPEG Library (para Auto DJ e manipulação de imagens)
@@ -29,10 +30,7 @@ O prefixo dos comandos *inicialmente* será `+`, só podendo ser trocado atravé
 `+ping` = Verifica em quantos *ms* está o atraso na comunicação entre você e a hospedagem do bot;<br>
 `+avatar (@user#tag)` = Retorna a imagem do avatar do usuário;<br>
 `+info (@user#tag)` = Retorna suas informações básicas do usuário;<br>
-`+clean [valor: 2-255] (offset: 0-255)` = Exclui a quantidade mensagens recentes informada. O *offset* ignora a quantidade nas últimas mensagens recebidas no chat **antes** de iniciar a limpeza;<br>
-`+playnow [YouTube Video URL]` = Reproduz o áudio de um vídeo no YouTube na mesma sala de voz de quem requereu;<br>
-`+ram` = Exibe estatísticas do servidor em execução, como a RAM, uso de CPU e o uptime;<br>
-`+profile (@user#tag)` = Retonar um card com informações básicas do usuário mencionado.<br>
+`+clean [valor: 2-255] (offset: 0-255)` = Exclui a quantidade mensagens recentes informada. O *offset* ignora a quantidade nas últimas mensagens recebidas no chat **antes** de iniciar a limpeza.<br>
 
 ## Metas (To-DO) `WIP`
 * Vamos deixar a meta aberta<br>

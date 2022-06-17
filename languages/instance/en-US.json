@@ -1,0 +1,10 @@
+{
+    "VERSION": "2.0",
+
+    "TEST": "Test",
+    "HELLO": {
+        "WORLD": "Hello World"
+    },
+
+    "COMMAND_ONLY_FOR_SERVERS": "This command is only available for servers"
+}
