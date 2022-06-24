@@ -41,7 +41,7 @@
     "nodemon": "^2.0.16",
     "opusscript": "^0.0.8",
     "simple-youtube-api": "^5.2.1",
-    "superagent": "^7.1.6",
+    "superagent": "^8.0.0",
     "uuid": "^8.3.2",
     "websocket": "^1.0.34",
     "ws": "^8.2.1",
