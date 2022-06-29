@@ -33,7 +33,7 @@
     "dotenv": "^16.0.1",
     "enmap": "^5.9.0",
     "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^5.0.0",
+    "ffmpeg-static": "^5.0.1",
     "git": "^0.1.5",
     "lowdb": "^3.0.0",
     "moment": "^2.29.1",
