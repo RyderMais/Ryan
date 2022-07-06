@@ -38,7 +38,7 @@
     "lowdb": "^3.0.0",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.19",
     "opusscript": "^0.0.8",
     "simple-youtube-api": "^5.2.1",
     "superagent": "^7.1.6",
