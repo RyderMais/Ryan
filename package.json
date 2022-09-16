@@ -36,7 +36,7 @@
     "ffmpeg-static": "^5.1.0",
     "git": "^0.1.5",
     "lowdb": "^3.0.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20",
     "opusscript": "^0.0.8",
