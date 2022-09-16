@@ -20,7 +20,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "@discordjs/builders": "^1.2.0",
-    "@discordjs/opus": "github:discordjs/opus",
+    "@discordjs/opus": "^0.8.0"
     "@discordjs/rest": "^1.1.0",
     "@discordjs/voice": "^0.11.0",
     "@joshdb/core": "^1.2.7",
