@@ -1,7 +1,5 @@
 <p align=center><img src="https://user-images.githubusercontent.com/42657376/148737048-abcd0787-5989-4c54-b562-93d70e7365ea.png" style="border-radius:50%"/></p>
-<h1 align=center><b>RYΛN</b> <code>Bot</code></h1>
-<p align=center>Robô (inicialmente pensando) para o Discord, com funções de automação, moderação, diversão e utilitários.</p><br><br>
-<h5 align=center>⚠ This project use "Brazilian Portuguese" as our native language. You can always help adding a pull request in **Dev** branch.</p><br><br>
+<p align=center><br>Robô (inicialmente pensando) para o Discord, com funções de automação, moderação, diversão e utilitários.</p><br><br>
 
 ## Dependências
 **Essencial:**
@@ -48,8 +46,19 @@ O prefixo dos comandos *inicialmente* será `+`, só podendo ser trocado atravé
 Desenvolvido por [**Wellington N.**](https://github.com/Bryceed), rotulado como programador da RyderMais.
 
 ## Licença
-Esse software de código aberto está sendo liberado sobre os termos **GNU AGPLv3** que, no geral, permite o uso e modificação para fins privados e comerciais, desde que mantenha-se como código aberto sob os mesmos termos e licença do código original. A atribuição de copyright apontando para este repositório é obrigatória, seja numa dedicatória de créditos ou entre as funções finais do software. 
+Esse software de código aberto está sendo liberado sobre os termos **GNU AGPLv3** que, no geral, permite o uso e modificação para fins privados e comerciais, desde que mantenha-se como código aberto sob os mesmos termos e licença do código original. A atribuição de copyright apontando para este repositório é obrigatória, seja numa dedicatória de créditos ou entre as funções finais do software.
 
 <br><br><br>
-<p align="center"><a href="http://rydermais.com/?utm_souce=github&utm_desc=rydermais_ryan"><img width="20%" src="https://user-images.githubusercontent.com/42657376/148738370-9e25ed6a-166d-4bed-85f9-762bdfe6abc6.png" /></a><br>Rigths Reserved © 2022</p>
+<p align="center">
+    <a href="http://rydermais.com/?utm_source=github&github_repo=ryan">
+      <img width="20%" src="https://user-images.githubusercontent.com/42657376/148738370-9e25ed6a-166d-4bed-85f9-762bdfe6abc6.png" />
+    </a>
+    <br>
+    <a href="https://discord.gg/3zukzfV6ZK" title="Discord Server" target="_blank" style="cursor: alias" rel="noopener">
+			<img src="https://img.shields.io/badge/Discord-5562EA?style=for-the-badge&logo=discord&logoColor=white" />
+		</a>
+    <a href="http://rydermais.com/?utm_source=github&github_repo=ryan" title="Discord Server" target="_blank" style="cursor: alias" rel="noopener">
+			<img src="https://img.shields.io/badge/Website-FAFAFA?style=for-the-badge" />
+		</a>
+</p>
 <br><br>
