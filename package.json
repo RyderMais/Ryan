@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js"
   },
+  "nodemonConfig": {
+    "ignore": ["**/test/**", "**/docs/**", "**/node_modules/**", "**/*.json"],
+    "delay": 1000
+  },
   "author": "Bryceed",
   "author_email": "wellington.tvd@outlook.com.br",
   "author_discord": "Bryceed#8168",
@@ -14,7 +18,10 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20"
+    "moment": "^2.29.4",
+    "node-cron": "^3.0.2",
+    "nodemon": "^2.0.20",
+    "os": "^0.1.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

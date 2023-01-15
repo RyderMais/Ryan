@@ -18,7 +18,6 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-
         let commands = client.commands;
         let fields = [];
 
@@ -37,12 +36,17 @@ module.exports = {
             .setFooter({ text: 'Made with ☕ by @Bryceed#8168' })
             .addFields(fields);
         const row = new ActionRowBuilder()
-        .addComponents(
-            new ButtonBuilder()
-                .setCustomId('primary')
-                .setLabel('Click me!')
-                .setStyle(ButtonStyle.Primary),
-        );
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('invite-bot')
+                    .setLabel('Invite Me!')
+                    .setStyle(ButtonStyle.Primary),
+            ).addComponents(
+                new ButtonBuilder()
+                    .setCustomId('support-server')
+                    .setLabel('Support')
+                    .setStyle(ButtonStyle.Primary),
+            );
 
         await interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
     }

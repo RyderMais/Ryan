@@ -1,5 +1,6 @@
 const { Colors, EmbedBuilder, ApplicationCommandType, ApplicationCommandOptionType } = require('discord.js');
 const fs = require('fs');
+const moment = require('moment');
 const package = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 const process = require('process');
 
@@ -39,7 +40,7 @@ module.exports = {
                 },
                 {
                     name: 'Uptime',
-                    value: `${process.uptime().toFixed(2)} seconds`,
+                    value: `${moment.duration(process.uptime() * 1000).humanize()}`,
                     inline: true,
                 },
                 {

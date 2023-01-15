@@ -2,12 +2,12 @@ const fs = require('fs');
 
 async function initInteractionButton(client, interaction) {
     if (interaction.isButton()) {
-        const buttons = fs.readdirSync('../../../src/events/interactions/buttons').filter(file => file.endsWith('.js'));
+        const buttons = fs.readdirSync('./buttons/').filter(file => file.endsWith('.js'));
 
         (buttons.length <= 0) ? console.log(`[!] No buttons found!`) : console.log(`[!] ${buttons.length} buttons found!`);
 
         buttons.forEach((file) => {
-            const button = require(`./buttons/${file}`).catch((err) => console.log(err));
+            const button = require(`./buttons/${file}`);
             if (button.config.customId === interaction.customId) {
                 button.run(client, interaction)
                 console.log(`[!] Button "${interaction.customId}" was executed!`);

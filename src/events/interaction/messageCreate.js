@@ -7,7 +7,7 @@ module.exports = async (client, message) => {
     let fields = [];
     commands.forEach((command) => {
         fields.push({
-            name: "/"+command.name,
+            name: "/" + command.name,
             value: command.description,
         });
     })
