@@ -4,7 +4,7 @@
 ## Dependências
 **Essencial:**
 - Node.js (v15)
-- Discord.js
+- Discord.js (v14)
 - Enmap
 - Fs
 - LowDB
