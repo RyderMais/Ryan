@@ -120,22 +120,6 @@ voice.bindExecutor(bot.functionManager.interpreter);
 
 setup(Util);
 
-
-// or enable CORS for specific origins
-const whitelistCORS = [
-    'https://ryan.rydermais.com',
-    'https://ryan.discloud.app',
-    'https://rydermais.com',
-    'https://rydermais.discloud.app',
-    'http://localhost:3004',
-];
-
-// if not stable, add localhost scenarios to whitelist
-whitelistCORS.push("http://localhost:" + port);
-whitelistCORS.push("http://localhost:8080");
-whitelistCORS.push("http://localhost");
-whitelistCORS.push("https://localhost");
-
 // when path start with "/api", always return in JSON format
 app.use("/api", (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
@@ -144,12 +128,9 @@ app.use("/api", (req, res, next) => {
 app.use(
     cors({
         origin: function (req, callback) {
-            // get node env to allow localhost on development
-            let origin = (process.env.NODE_ENV == "production") ? req : null;
-            // if origin is null, allow localhost
-            if (whitelistCORS.indexOf(origin) !== -1 || origin == null) {
+            try {
                 callback(null, true)
-            } else {
+            } catch (error) {
                 callback(new Error('Requests under "' + origin + '" origin aren\'t allowed by CORS'))
             }
         }
