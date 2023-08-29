@@ -1,6 +1,5 @@
 /database/*/
 /node_modules
 /.env
-/.env.*
-/discloud.config
 /.env.development
+/discloud.config

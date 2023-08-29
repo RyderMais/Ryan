@@ -85,7 +85,7 @@ bot.readyCommand({
     executeOnStartup: true,
 }),
 
-require('../database/variables.js')(bot);
+require('./database/variables.js')(bot);
 
 const voice = new AoiVoice(bot, {
     searchOptions: {
