@@ -131,7 +131,7 @@ app.use(
             try {
                 callback(null, true)
             } catch (error) {
-                callback(new Error('Requests under "' + origin + '" origin aren\'t allowed by CORS'))
+                callback(new Error('Requests under "' + req + '" origin aren\'t allowed by CORS'))
             }
         }
     })
