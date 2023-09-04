@@ -126,15 +126,7 @@ app.use("/api", (req, res, next) => {
     next();
 });
 app.use(
-    cors({
-        origin: function (req, callback) {
-            try {
-                callback(null, true)
-            } catch (error) {
-                callback(new Error('Requests under "' + req + '" origin aren\'t allowed by CORS'))
-            }
-        }
-    })
+    cors()
 );
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.html"));
@@ -184,21 +176,22 @@ async function startAPI() {
             console.error(`Web page failed to start since the port ${port} is already in use.`);
         }
         return;
-    }
-    let attempts = 0;
-    while (attempts < 10) {
-        try {
-            await app.listen(port, () => {
-                console.log(`REST API running locally at http://localhost:${port}`);
-            });
-            break;
-        } catch (error) {
-            attempts++;
-            if (attempts >= 10) {
-                console.error("Web page failed to start since the original port and 10 random ports were already in use.");
+    } else {
+        let attempts = 0;
+        while (attempts < 10) {
+            try {
+                await app.listen(port, () => {
+                    console.log(`REST API running locally at http://localhost:${port}`);
+                });
                 break;
+            } catch (error) {
+                attempts++;
+                if (attempts >= 10) {
+                    console.error("Web page failed to start since the original port and 10 random ports were already in use.");
+                    break;
+                }
+                port = Math.floor(Math.random() * 10000);
             }
-            port = Math.floor(Math.random() * 10000);
         }
     }
 }
