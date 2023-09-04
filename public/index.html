@@ -3,28 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>RYAN BOT</title>
 </head>
 <body>
-    <h1>RYAN BOT</h1>
-    <p>RYAN BOT is a bot that can help you to do some task.</p>
+    <div id="content">
+        <h1>Hi, I'm online!</h1>
+        <p>RYAN is an Open-source Discord Bot System (also used on "RYΛN BOT") that can help you to do some tasks automatically.</p>
+        <p>Written in JavaScript, using Discord and aoi libraries with Node.js</p>
+        <hr>
 
-    <h2>Features</h2>
-    <ul>
-        <li>A pretty dynamically-generated list coming soon ;)</li>
-        <li>I use an web dashboard to manage the bot.</li>
-        <li>Modularized code for better comprehension and easier maintenance.</li>
-        <li>Less stress with code, more time for other things.</li>
-    </ul>
+        <div class="item-card">
+            <h2>Features</h2>
+            <ul>
+                <li>A pretty dynamically-generated list coming soon ;)</li>
+                <li>I use an web dashboard to manage the bot.</li>
+                <li>Modularized code for better comprehension and easier maintenance.</li>
+                <li>Less stress with code, more time for other things.</li>
+            </ul>
+        </div>
 
-    <h2>How to use</h2>
-    <ol>
-        <li>Invite me to your server by clicking <a href="https://discord.com/api/oauth2/authorize?client_id=486777608265138186&permissions=8&scope=bot" target="_blank">here</a>.</li>
+        <div class="item-card">
+            <h2>How to use?</h2>
+            <h3>Hosted by us</h3>
+            <ol>
+                
+                <li>Invite the <b>RYAN BOT</b> to your server by clicking <a href="https://discord.com/api/oauth2/authorize?client_id=486777608265138186&permissions=8&scope=bot" target="_blank">here</a>.</li>
 
-        <li>Give me a role that has permission to manage messages.</li>
-    </ol>
-
-    <h2>Commands</h2>
-
+                <li>Give me a role that has permission to manage messages.</li>
+            </ol>
+            <h3>Host your own (for developers)</h3>
+            <ol>
+                <li>Clone the repository.</li>
+                <li>Install Node.js under the version LTS 16.6.0 or higher</li>
+                <li>Also, install any code editor you want (I recommend Visual Studio Code).</li>
+                <li>Access the root folder of this project with the terminal and install its dependencies with <code>npm install</code>.</li>
+                <li>Copy the <code>.env.example</code> file and rename it to <code>.env</code> and fill in the values.</li>
+                <li>Do the same with <code>development</code> file example, to enable the usage under development mode. If you don't have an second bot to test it, use the same values from the step above</li>
+                <li>Run the bot in development mode with <code>npm run dev</code> or in production mode (host) with <code>npm start</code>.</li>
+                <li>Host the bot somewhere to keep it "online 24/7" (<i>depending where you are hosting the code, how much you wanna pay to keep it, how many servers you want to serve, periferical stuff like RAM, CPU, etc.</i>)</li>
+            </ol>
+            <p>This code is licensed under the <a href="https://choosealicense.com/licenses/agpl-3.0/" target="_blank">GNU Affero General Public License v3.0</a> (AGPL-3.0).
+                <br>
+                <table>
+                    <tr>
+                        <th>Permissions</th>
+                        <th>Conditions</th>
+                        <th>Limitations</th>
+                    </tr>
+                    <tr>
+                        <td>Commercial use</td>
+                        <td>Disclosure source</td>
+                        <td>Liability</td>
+                    </tr>
+                    <tr>
+                        <td>Distribuition</td>
+                        <td>License and copyright notice</td>
+                        <td>Warranty</td>
+                    </tr>
+                    <tr>
+                        <td>Modification</td>
+                        <td>Network use is distribution</td>
+                    </tr>
+                    <tr>
+                        <td>Patent use</td>
+                        <td>Same license</td>
+                    </tr>
+                    <tr>
+                        <td>Private use</td>
+                        <td>State changes</td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+        <div class="item-card">
+            <h2>Useful links</h2>
+            <ul>
+                <li><a href="/api">API</a></li>
+                <li><a href="/docs">Documentation</a> (WIP)</li>
+                <li><a href="https://github.com/RyderMais/Ryan">GitHub</a> (source code)</li>
+                <li><a href="https://discord.gg/6hRjETzEmJ">Support server</a></li>
+            </ul>
+        </div>
+        <hr>
+        <div id="footer">
+            
+            <p>Copyrigth &copy; 2021 - RYAN BOT</p>
+        </div>
+    </div>
 </body>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: darkslateblue;
+    }
+
+    #content {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        color: #fafafa;
+    }
+
+    h1 {
+        font-size: 3em;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 2em;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .item-card {
+        background-color: #f5f5f511;
+        border-radius: 5px;
+        margin: 20px 0;
+        padding: 20px;
+    }
+    .item-card p {
+        margin-top: 12px;
+        padding: 0;
+        font-size: 0.8em;
+    }
+    table {
+        max-width: 100%;
+        width: fit-content;
+        border-collapse: collapse;
+        font-size: 0.7em;
+    }
+    table th, table td {
+        padding: 5px 10px;
+        border: thin solid #fafafa;
+    }
+    table th {
+        background-color: rgba(255, 255, 255, 0.188);
+    }
+
+    .item-card h2 {
+        margin-bottom: 10px;
+    }
+
+    .item-card ul, .item-card ol {
+        margin: 0;
+        padding: 10px 0;
+        border-left: thick solid #fafafa;
+        background-color: rgba(255, 255, 255, 0.188);
+        border-radius: 5px;
+    }
+
+    .item-card ul li, .item-card ol li {
+        margin: 0 30px;
+        padding: 0;
+        font-size: 0.8em;
+    }
+
+    .item-card ul li a, .item-card ol li a {
+        color: #fff;
+        font-weight: bold;
+    }
+
+
+    #footer {
+        margin: 0;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+
+    /* Convenience */
+    a, a:visited, a:active, a:hover {
+        cursor: pointer;
+        color: #fff;
+    }
+    hr {
+        border: none;
+        border-bottom: thin solid rgba(250, 250, 250, 0.04);
+        margin: 20px 0;
+    }
+
+</style>
 </html>
